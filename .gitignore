@@ -1,0 +1,12 @@
+#cache
+**/__pycache__/
+
+# misc
+.DS_Store
+
+gunicorn.pid
+nohup.out
+*.log
+
+/build
+
