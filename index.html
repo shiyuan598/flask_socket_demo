@@ -7,14 +7,15 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
     </head>
     <body>
-        <h1>Flask-SocketIO Example</h1>
+        <h4>Flask-SocketIO Example</h4>
         <div id="log"></div>
         <form id="message-form">
             <input type="text" id="message-input" />
             <input type="submit" value="Send" />
         </form>
+        <button id="btnDm">dmdm</button>
         <script>
-            var socket = io.connect("http://172.16.12.84:9004/", {
+            var socket = io.connect("http://127.0.0.1:9004/", {
                 transports: ["websocket"],
                 upgrade: false,
                 forceNew: true,
@@ -54,6 +55,9 @@
             socket.on("my_response", function (data) {
                 var message = data["message"];
                 $("#log").append("<p>" + message + "</p>");
+            });
+            $("#btnDm").click(() => {
+                fetch("http://172.16.12.84:9004").then(console.info);
             });
         </script>
     </body>
